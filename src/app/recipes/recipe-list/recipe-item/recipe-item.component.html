@@ -1,0 +1,10 @@
+<a style="cursor: pointer"
+class="list-group-item clearfix mb-3">
+    <div class="float-left">
+        <div class="list-group-item-heading">{{ recipe.name }}</div>
+        <div class="list-group-item-text">{{ recipe.description }}</div>
+    </div>
+    <span class="float-right">
+        <img class="img-fluid" [src]="recipe.imagePath" alt="{{ recipe.name }}" style="max-height: 80px">
+    </span>
+</a>

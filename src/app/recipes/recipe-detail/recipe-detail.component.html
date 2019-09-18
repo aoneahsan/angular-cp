@@ -1,0 +1,46 @@
+<div *ngIf="recipeData">
+    <div class="row">
+        <div class="col-12">
+            <img class="img-thumbnail w-50" [src]="recipeData.imagePath" alt="No Image">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h2>{{ recipeData.name }}</h2>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div class="btn-group dropdown">
+                <button class="btn btn-primary">Manage Recipe</button>
+                <button id="my-dropdown" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle dropdown</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="my-dropdown">
+                    <a class="dropdown-item active" (click)="addIngredients()" style="color: white; cursor: pointer;">Add To Cart</a>
+                    <a class="dropdown-item active" [routerLink]="['/recipes',recipeId, 'edit']">Edit Recipe</a>
+                    <a class="dropdown-item active" (click)="deleteRecipe()" style="color: white; cursor: pointer;">Delete Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            {{ recipeData.description }}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12" *ngIf="recipeData.ingredients">
+            <h4>List Of Ingredients</h4>
+            <ul class="list-group">
+                <li 
+                class="list-group-item"
+                *ngFor="let ingredient of recipeData.ingredients">{{ ingredient.name }} - {{ ingredient.amount }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

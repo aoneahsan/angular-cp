@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-12">
+        <form class="w-50" (submit)="slFormSubmit(f)" #f="ngForm">
+            <div class="row">
+                <div class="form-group col-9">
+                    <label for="name">Name</label>
+                    <input id="name" 
+                    class="form-control" 
+                    type="text" 
+                    name="name"
+                    ngModel
+                    required
+                    >
+                    <span *ngIf="false">Please Enter a valid value!</span>
+                </div>
+                <div class="form-group col-3">
+                    <label for="amount">Amount</label>
+                    <input id="amount" 
+                    class="form-control" 
+                    type="number" 
+                    name="amount"
+                    value="0"
+                    ngModel
+                    required
+                    pattern="[1-9]+[0-9]*$"
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-success mr-3" type="submit" [disabled]="!f.valid">{{!editingMode ? "Add" : "Update"}}</button>
+                    <button class="btn btn-danger mr-3" (click)="deleteIngredient()" type="button" *ngIf="editingMode">Delete</button>
+                    <button class="btn btn-primary" (click)="clearForm()" type="button">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

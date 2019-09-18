@@ -1,0 +1,16 @@
+<!-- The content below is only a placeholder and can be replaced.
+<app-header (featureSelected)="onFeatureSelect($event)"></app-header>
+<div class="container">
+    <div class="col-12 mt-4 mb-3">
+        <app-recipes *ngIf="featureView === 'recipes'"></app-recipes>
+        <app-shopping-list *ngIf="featureView !== 'recipes'"></app-shopping-list>
+    </div>
+</div>
+<router-outlet></router-outlet> -->
+
+<app-header (featureSelected)="onFeatureSelect($event)"></app-header>
+<div class="container">
+    <div class="col-12 mt-4 mb-3">
+        <router-outlet></router-outlet>
+    </div>
+</div>
