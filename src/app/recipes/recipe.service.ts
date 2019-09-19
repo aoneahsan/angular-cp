@@ -10,24 +10,30 @@ export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
     recipesChange = new Subject<Recipe[]>();    
 
-    private recipes: Recipe[] = [
-        new Recipe('A test Recipe 0', 
-        'A test Recipe description 0', 
-        'https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/mrtrending_01_0.jpg?itok=uiX2Gkhe',
-        [
-            new Ingredient("Meat", 2),
-            new Ingredient("Drink", 1)
-        ]),
-        new Recipe('A test Recipe 1', 
-        'A test Recipe description 1', 
-        'https://media3.s-nbcnews.com/j/MSNBC/Components/Video/201808/tdy_food_klg_chicken_180828_1920x1080.today-inline-vid-featured-desktop.jpg',
-        [
-            new Ingredient("Item", 2),
-            new Ingredient("Item 2", 2)
-        ]),
-    ];
+    private recipes: Recipe[] = [];
+    // private recipes: Recipe[] = [
+    //     new Recipe('A test Recipe 0', 
+    //     'A test Recipe description 0', 
+    //     'https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/mrtrending_01_0.jpg?itok=uiX2Gkhe',
+    //     [
+    //         new Ingredient("Meat", 2),
+    //         new Ingredient("Drink", 1)
+    //     ]),
+    //     new Recipe('A test Recipe 1', 
+    //     'A test Recipe description 1', 
+    //     'https://media3.s-nbcnews.com/j/MSNBC/Components/Video/201808/tdy_food_klg_chicken_180828_1920x1080.today-inline-vid-featured-desktop.jpg',
+    //     [
+    //         new Ingredient("Item", 2),
+    //         new Ingredient("Item 2", 2)
+    //     ]),
+    // ];
 
     constructor() {}
+
+    setRecipes(recipes) {
+        this.recipes = recipes;
+        this.recipesChange.next(this.recipes.slice());
+    }
 
     getRecipes() {
         return this.recipes.slice();

@@ -18,8 +18,8 @@
             <div class="dropdown mr-5">
                 <button id="my-dropdown" class="btn btn-primary dropdown-toggle mr-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Manage</button>
                 <div class="dropdown-menu" aria-labelledby="my-dropdown">
-                    <a class="dropdown-item active">Save Data</a>
-                    <a class="dropdown-item active">Fetch Data</a>
+                    <a class="dropdown-item active" style="cursor: pointer; color:white;" (click)="saveRecipes()">Save Data</a>
+                    <a class="dropdown-item active" style="cursor: pointer; color:white;" (click)="fetchRecipes()">Fetch Data</a>
                 </div>
             </div>
         </ul>
