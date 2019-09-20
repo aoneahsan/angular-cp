@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { RecipeService } from '../recipes/recipe.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { map, tap } from "rxjs/operators";
+import { map, tap, take, exhaustMap } from "rxjs/operators";
 import { Recipe } from '../recipes/recipe.model';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ export class DataStorageService {
 
   url = "https://angular-course-767e6.firebaseio.com/recipes.json";
 
-  constructor(private _recipeService: RecipeService, private _http: HttpClient) { }
+  constructor(
+    private _recipeService: RecipeService, 
+    private _http: HttpClient, 
+    private _authService: AuthService) { }
 
   saveRecipes() {
     console.log("Saving Posts!");
@@ -21,8 +25,8 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    return this._http.get<Recipe[]>(this.url)
-    .pipe(map(
+    return this._http.get<Recipe[]>(this.url).pipe(
+      map(
       recipes => {
         return recipes.map(
           recipe => {
@@ -34,8 +38,8 @@ export class DataStorageService {
         recipes => {
           console.log("Fetching Posts!");
           this._recipeService.setRecipes(recipes);
-        })
-      );
+        })      
+    );
   }
   
 }
