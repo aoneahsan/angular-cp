@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AuthComponent } from './auth/auth-compoenent';
+import { AnimationComponent } from './animation/animation.component';
 
 
 const routes: Routes = [
@@ -8,6 +9,10 @@ const routes: Routes = [
     path: "",
     redirectTo: "/recipes",
     pathMatch: "full"
+  },
+  {
+    path: "animations",
+    component: AnimationComponent
   },
   {
     path: "auth",
@@ -20,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules} )],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules, useHash: true} )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -46,8 +46,8 @@ export class ShoppingEditComponent implements OnInit {
     this.editingMode = false;
   }
 
-  deleteIngredient(index) {
-    this._shoppingListService.deleteIngredientS(index);
+  deleteIngredient() {
+    this._shoppingListService.deleteIngredientS(this.editingItemIndex);
     this.slForm.reset();
     this.editingMode = false;
   }
@@ -55,6 +55,10 @@ export class ShoppingEditComponent implements OnInit {
   clearForm() {
     this.slForm.reset();
     this.editingMode = false;
+  }
+
+  get EditMode() {
+    return this.editingMode;
   }
 
 }

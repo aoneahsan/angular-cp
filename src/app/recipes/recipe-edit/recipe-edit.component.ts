@@ -60,7 +60,7 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
-  formSubmit(form: NgForm) {
+  formSubmit() {
     const newRecipe = new Recipe(
       this.recipeForm.get('name').value,
       this.recipeForm.get('description').value,
@@ -93,6 +93,10 @@ export class RecipeEditComponent implements OnInit {
 
   cancelForm() {
     this.router.navigate(['../'],{relativeTo: this.route});
+  }
+
+  get ingredientsControls() {
+    return (this.recipeForm.get('ingredients') as FormArray).controls;
   }
 
 }

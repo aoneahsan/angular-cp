@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth-compoenent';
@@ -14,20 +15,26 @@ import { HeaderComponent } from './header/header.component';
 import { SpinnerComponent } from './spinner/spinner-component';
 import { FormsModule } from '@angular/forms';
 import { ShoppingListModule } from './shopping-list/shopping-list-module';
+import { AnimationComponent } from './animation/animation.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AnimationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ShoppingListModule
+    ShoppingListModule,
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ShoppingListService,

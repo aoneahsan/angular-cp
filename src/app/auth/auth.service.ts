@@ -105,10 +105,7 @@ export class AuthService {
     // errorHandle function to handle errors from login and signup trys.
     private errorHandle(errorRes: HttpErrorResponse) {
         let errorMessage = "an error occured";
-        if (!errorRes.error || !errorRes.error.error) {
-            return throwError(errorMessage);
-        }
-        switch (errorRes.error.error.message) {
+        switch (errorRes.message) {
             case "EMAIL_EXISTS":
                 errorMessage = "Email Exists";
                 break;
@@ -117,10 +114,7 @@ export class AuthService {
                 break;
             case "TOO_MANY_ATTEMPTS_TRY_LATER":
                 errorMessage = "TOO MANY ATTEMPTS TRY LATER";
-                break;
-            case "EMAIL_NOT_FOUND":
-                errorMessage = "EMAIL_NOT_FOUND";
-                break;
+                break;            
             case "INVALID_PASSWORD":
                 errorMessage = "INVALID_PASSWORD";
                 break;
