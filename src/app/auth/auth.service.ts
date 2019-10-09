@@ -26,7 +26,7 @@ export class AuthService {
     User = new BehaviorSubject<User>(null); // BehaviorSubject is similar to Subject in advance it gives a privious state also (null) in this case,
 
     tokenExpirationTime: any;
-    constructor(private _http: HttpClient, private router: Router) {}    
+    constructor(private _http: HttpClient, private router: Router) {}
 
     signUp(email: string, password: string) {
         return this._http.post<AuthResponse>(
@@ -82,9 +82,9 @@ export class AuthService {
             return;
         }
         const loadUser = new User(
-            userData.email, 
-            userData.id, 
-            userData._tokken, 
+            userData.email,
+            userData.id,
+            userData._tokken,
             new Date(userData._tokkenExpireDate));
 
         if (loadUser.token) {
@@ -114,7 +114,7 @@ export class AuthService {
                 break;
             case "TOO_MANY_ATTEMPTS_TRY_LATER":
                 errorMessage = "TOO MANY ATTEMPTS TRY LATER";
-                break;            
+                break;
             case "INVALID_PASSWORD":
                 errorMessage = "INVALID_PASSWORD";
                 break;
