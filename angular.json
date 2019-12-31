@@ -25,13 +25,13 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/jquery.js",
-              "node_modules/bootstrap/dist/js/popper.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/bootstrap/dist/js/jquery.js",
+              "src/assets/bootstrap/dist/js/popper.js",
+              "src/assets/bootstrap/dist/js/bootstrap.min.js",
             ]
           },
           "configurations": {
